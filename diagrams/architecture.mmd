@@ -1,0 +1,34 @@
+classDiagram
+    class PawPalApp {
+        +collect_pet_tasks()
+        +show_plan()
+    }
+
+    class PawPalAssistant {
+        +generate_schedule(tasks, available_minutes)
+    }
+
+    class CareNoteRetriever {
+        +retrieve(task_title, species)
+    }
+
+    class KnowledgeBase {
+        +pet_care_notes.json
+    }
+
+    class Owner {
+        +enter_pet_and_task_details()
+        +review_schedule()
+    }
+
+    class Tests {
+        +check_retrieval_and_planning()
+    }
+
+    PawPalApp --> PawPalAssistant : submits plan request
+    PawPalAssistant --> CareNoteRetriever : retrieves per task
+    CareNoteRetriever --> KnowledgeBase : searches
+    PawPalAssistant --> PawPalApp : returns schedule and evidence
+    Owner --> PawPalApp : enters details and reviews plan
+    Tests ..> CareNoteRetriever : tests
+    Tests ..> PawPalAssistant : tests

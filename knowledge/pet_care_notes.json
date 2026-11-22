@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Dog walking routine",
+    "species": ["dog"],
+    "keywords": ["walk", "walking", "exercise", "activity"],
+    "guidance": "Keep the walk at the time and duration you entered; activity needs vary by pet.",
+    "source": "PawPal+ general planning note; not veterinary advice"
+  },
+  {
+    "title": "Cat activity and play",
+    "species": ["cat"],
+    "keywords": ["play", "toy", "enrichment"],
+    "guidance": "Use the play duration you entered and adjust activities to your cat's comfort.",
+    "source": "PawPal+ general planning note; not veterinary advice"
+  },
+  {
+    "title": "Feeding routine",
+    "species": ["dog", "cat", "other"],
+    "keywords": ["feed", "feeding", "food", "meal", "breakfast", "dinner"],
+    "guidance": "Keep to the feeding schedule and instructions you already follow; this planner does not infer portions or meal frequency.",
+    "source": "PawPal+ general planning note; follow your veterinarian or food-label guidance"
+  },
+  {
+    "title": "Grooming routine",
+    "species": ["dog", "cat", "other"],
+    "keywords": ["brush", "brushing", "groom", "grooming", "coat"],
+    "guidance": "Use the grooming task and duration you entered; coat and grooming needs vary.",
+    "source": "PawPal+ general planning note; not veterinary advice"
+  },
+  {
+    "title": "Litter box cleaning",
+    "species": ["cat"],
+    "keywords": ["litter", "box", "clean", "cleaning"],
+    "guidance": "Include litter-box cleaning in your home-care routine using the task duration you entered.",
+    "source": "PawPal+ general planning note; not veterinary advice"
+  },
+  {
+    "title": "Medication safety",
+    "species": ["dog", "cat", "other"],
+    "keywords": ["medication", "medicine", "dose", "prescription"],
+    "guidance": "Follow the medication instructions provided by your veterinarian. This planner cannot recommend changing a dose or timing.",
+    "source": "PawPal+ safety note; consult your veterinarian"
+  }
+]

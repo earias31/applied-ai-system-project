@@ -1,15 +1,42 @@
 classDiagram
-    %% Replace the placeholders below with your actual classes, attributes, methods, and relationships.
-    %% Keep this file updated so it matches your final implementation.
-
-    class ClassName {
-        +type attribute
-        +method() returnType
+    class CareTask {
+        +title
+        +duration_minutes
+        +priority
     }
 
-    class AnotherClass {
-        +type attribute
-        +method() returnType
+    class CareNoteRetriever {
+        +retrieve(task_title, species)
     }
 
-    ClassName --> AnotherClass : relationship
+    class RetrievedNote {
+        +note
+        +score
+    }
+
+    class PawPalAssistant {
+        +generate_schedule(pet_name, species, tasks, available_minutes, start_time)
+    }
+
+    class PlannedTask {
+        +task
+        +start_time
+        +end_time
+        +explanation
+        +evidence
+    }
+
+    class CarePlan {
+        +pet_name
+        +species
+        +scheduled
+        +deferred
+        +response
+    }
+
+    PawPalAssistant --> CareNoteRetriever : retrieves evidence for tasks
+    PawPalAssistant --> CarePlan : generates
+    CarePlan --> PlannedTask : contains
+    PlannedTask --> CareTask : schedules
+    PlannedTask --> RetrievedNote : uses optional evidence
+    CareNoteRetriever --> RetrievedNote : returns
