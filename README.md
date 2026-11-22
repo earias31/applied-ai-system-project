@@ -65,10 +65,12 @@ No API key or network access is needed after dependencies are installed. Logs fo
 
 ## Reproducible execution evidence
 
-Run the end-to-end examples from the project root after installing the requirements:
+From the project root, each command below runs an end-to-end example using the included knowledge base. The input and actual output are shown together.
+
+### Example 1: Retrieval and time-limit scheduling
 
 ```console
-> python -m examples.run_demo
+> python -m examples.run_demo walk
 === Dog schedule with limited time ===
 Input: Mochi (dog), 25 minutes from 08:00
   - Morning walk: 20 min, high priority
@@ -78,7 +80,12 @@ Output: Daily care plan for Mochi (dog): 1 task(s) fit within 25 available minut
     Scheduled as a high-priority task. Retrieved guidance informed its placement: Keep the walk at the time and duration you entered; activity needs vary by pet.
     Evidence: Dog walking routine (75% keyword relevance)
   Deferred: Feed breakfast (time limit)
+```
 
+### Example 2: Retrieved notes and missing evidence
+
+```console
+> python -m examples.run_demo cat
 === Cat schedule with matched and unmatched tasks ===
 Input: Luna (cat), 40 minutes from 08:00
   - Organize supply shelf: 10 min, medium priority
@@ -93,7 +100,12 @@ Output: Daily care plan for Luna (cat): 3 task(s) fit within 40 available minute
     Evidence: Grooming routine (80% keyword relevance)
   08:25-08:35 Organize supply shelf
     Scheduled as a medium-priority task based on your input. No matching care note was found, so no additional care guidance was used.
+```
 
+### Example 3: Medication safety guardrail
+
+```console
+> python -m examples.run_demo medication
 === Medication safety guardrail ===
 Input: Rex (dog), 10 minutes from 08:00
   - Medication reminder: 5 min, high priority
@@ -103,7 +115,7 @@ Output: Daily care plan for Rex (dog): 1 task(s) fit within 10 available minutes
     Evidence: Medication safety (80% keyword relevance)
 ```
 
-These runs demonstrate that retrieved notes inform ordering and explanations, no extra care guidance is invented for an unmatched task, time limits defer work, and medication guidance retains a veterinary safety warning. The displayed percentages are keyword-overlap relevance scores, not calibrated confidence.
+The first example shows relevant guidance affecting the task explanation and the time limit deferring a task. The second shows retrieved notes being used while an unmatched task receives no invented care guidance. The third shows the medication safety note. Percentages are keyword-overlap relevance scores, not calibrated confidence. Run `python -m examples.run_demo` (or `python -m examples.run_demo all`) to execute all three.
 
 ## Design decisions
 
@@ -129,6 +141,6 @@ The app also logs retrieval and schedule-generation activity and records excepti
 
 ## Portfolio artifact
 
-**Code:** [PawPal+ on GitHub](https://github.com/earias31/ai110-module2show-pawpal-starter)
+**Code:** [PawPal+ on GitHub](https://github.com/earias31/applied-ai-system-project)
 
 **What this project says about me as an AI engineer:** I care about building AI features that demonstrably affect application behavior, not just adding an AI label. I chose a small, testable RAG workflow, made evidence and missing matches visible, and added guardrails around medical topics. I also recognize that passing tests and keyword scores do not prove advice is correct, so human review and better-validated knowledge sources remain important.
